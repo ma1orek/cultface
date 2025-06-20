@@ -90,13 +90,8 @@ export default function CultFace() {
             });
 
             if (!response.ok) {
-                let errorMessage;
-                try {
-                    const errorData = await response.json();
-                    errorMessage = errorData.error || 'An unknown error occurred.';
-                } catch (e) {
-                    errorMessage = await response.text();
-                }
+                const errorData = await response.json().catch(() => response.text());
+                const errorMessage = errorData.error || errorData || 'An unknown error occurred.';
                 throw new Error(errorMessage);
             }
 
