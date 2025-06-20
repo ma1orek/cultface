@@ -3,18 +3,18 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 const scenes = [
-    { id: 'bruce', name: 'Bruce Almighty', url: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', thumbnail: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
-    { id: 'forrest', name: 'Forrest Gump', url: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', thumbnail: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
-    { id: 'ironman', name: 'Iron Man', url: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', thumbnail: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
-    { id: 'jadore', name: 'Jadore Dior', url: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', thumbnail: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
-    { id: 'vandamme', name: 'Van Damme', url: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', thumbnail: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
-    { id: 'woman1', name: 'Woman 1', url: 'https://bliskioptyk.pl/videos/Woman1.mp4', thumbnail: 'https://bliskioptyk.pl/images/Woman1.jpg' },
-    { id: 'bruce_2', name: 'Bruce Almighty 2', url: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', thumbnail: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
-    { id: 'forrest_2', name: 'Forrest Gump 2', url: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', thumbnail: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
-    { id: 'ironman_2', name: 'Iron Man 2', url: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', thumbnail: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
-    { id: 'jadore_2', name: 'Jadore Dior 2', url: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', thumbnail: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
-    { id: 'vandamme_2', name: 'Van Damme 2', url: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', thumbnail: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
-    { id: 'woman1_2', name: 'Woman 1 (alt)', url: 'https://bliskioptyk.pl/videos/Woman1.mp4', thumbnail: 'https://bliskioptyk.pl/images/Woman1.jpg' },
+    { name: "Leonardo DiCaprio", videoUrl: "/Leonardo DiCaprio.mp4", imageUrl: "/Leonardo DiCaprio.jpg" },
+    { name: "Mel Gibson", videoUrl: "/Mel Gibson.mp4", imageUrl: "/Mel Gibson.jpg" },
+    { name: "For Bigger Blazes", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg" },
+    { name: "For Bigger Escape", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg" },
+    { name: "For Bigger Fun", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg" },
+    { name: "For Bigger Joyrides", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg" },
+    { name: "For Bigger Meltdowns", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg" },
+    { name: "Subaru Outback", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutback2014.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutback2014.jpg" },
+    { name: "Tears of Steel", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg" },
+    { name: "Volkswagen GTI", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/VolkswagenGTIReview.jpg" },
+    { name: "We Are Going On Bullrun", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/WeAreGoingOnBullrun.jpg" },
+    { name: "What Car Can You Get", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg" },
 ];
 
 export default function CultFace() {
@@ -33,7 +33,7 @@ export default function CultFace() {
     };
 
     const handleSceneClick = (scene) => {
-        if (selectedScene?.id !== scene.id) {
+        if (selectedScene?.name !== scene.name) {
             setIsVideoLoading(true);
             setSelectedScene(scene);
             setCustomUrl('');
@@ -69,7 +69,7 @@ export default function CultFace() {
             return;
         }
 
-        const videoUrlToGenerate = customUrl || selectedScene?.url;
+        const videoUrlToGenerate = customUrl || selectedScene?.videoUrl;
         if (!videoUrlToGenerate) {
             alert('Please select a scene or provide a video URL!');
             return;
@@ -148,12 +148,12 @@ export default function CultFace() {
         }
     }, [customUrl, selectedScene]); 
 
-    const currentVideoUrl = customUrl || selectedScene?.url;
+    const currentVideoUrl = customUrl || selectedScene?.videoUrl;
 
     return (
         <>
             <Head>
-                <title>cultface - Take Part in Iconic Movie Moments - AI Powered FaceSwap</title>
+                <title>CULTFACE</title>
                 <link rel="icon" href="/favi.png" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -190,8 +190,8 @@ export default function CultFace() {
                                 <div className="scene-scroll-container">
                                     <div className="scene-grid">
                                         {scenes.map((scene) => (
-                                            <div key={scene.id} className={`scene-card ${selectedScene?.id === scene.id ? 'active' : ''}`} onClick={() => handleSceneClick(scene)}>
-                                                <div className="scene-thumbnail" style={{ backgroundImage: `url(${scene.thumbnail})` }}></div>
+                                            <div key={scene.name} className={`scene-card ${selectedScene?.name === scene.name ? 'active' : ''}`} onClick={() => handleSceneClick(scene)}>
+                                                <div className="scene-thumbnail" style={{ backgroundImage: `url(${scene.imageUrl})` }}></div>
                                                 <div className="scene-title-wrapper">
                                                     <div className="scene-title">{scene.name}</div>
                                                 </div>
@@ -214,7 +214,7 @@ export default function CultFace() {
                                     loop 
                                     muted={false} 
                                     className="main-video" 
-                                    poster={selectedScene?.thumbnail || ''}
+                                    poster={selectedScene?.imageUrl || ''}
                                     style={{ visibility: isVideoLoading ? 'hidden' : 'visible' }}
                                 >
                                     {currentVideoUrl &&
