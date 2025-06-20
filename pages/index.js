@@ -5,16 +5,16 @@ import Image from 'next/image';
 const scenes = [
     { name: "Leonardo DiCaprio", videoUrl: "https://bliskioptyk.pl/videos/Leonardo%20DiCaprio.mp4", imageUrl: "https://bliskioptyk.pl/images/Leonardo%20DiCaprio.jpg" },
     { name: "Mel Gibson", videoUrl: "https://bliskioptyk.pl/videos/Mel%20Gibson.mp4", imageUrl: "https://bliskioptyk.pl/images/Mel%20Gibson.jpg" },
-    { name: "For Bigger Blazes", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg" },
-    { name: "For Bigger Escape", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg" },
-    { name: "For Bigger Fun", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg" },
-    { name: "For Bigger Joyrides", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg" },
-    { name: "For Bigger Meltdowns", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg" },
-    { name: "Subaru Outback", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutback2014.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutback2014.jpg" },
-    { name: "Tears of Steel", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg" },
-    { name: "Volkswagen GTI", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/VolkswagenGTIReview.jpg" },
-    { name: "We Are Going On Bullrun", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/WeAreGoingOnBullrun.jpg" },
-    { name: "What Car Can You Get", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg" },
+    { name: 'Iron Man', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
+    { name: 'Jadore Dior', videoUrl: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
+    { name: 'Van Damme', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
+    { name: 'Woman 1', videoUrl: 'https://bliskioptyk.pl/videos/Woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/Woman1.jpg' },
+    { name: 'Bruce Almighty 2', videoUrl: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', imageUrl: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
+    { name: 'Forrest Gump 2', videoUrl: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', imageUrl: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
+    { name: 'Iron Man 2', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
+    { name: 'Jadore Dior 2', videoUrl: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
+    { name: 'Van Damme 2', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
+    { name: 'Woman 1 (alt)', videoUrl: 'https://bliskioptyk.pl/videos/Woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/Woman1.jpg' },
 ];
 
 export default function CultFace() {
