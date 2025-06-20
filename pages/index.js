@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const scenes = [
     { id: 'bruce', name: 'Bruce Almighty', url: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', thumbnail: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
@@ -173,7 +174,7 @@ export default function CultFace() {
                             <button className="btn-cta" onClick={handleScrollToShine}>Become famous &rarr;</button>
                         </div>
                         <div className="hero-image">
-                            <img src="/hero.gif" alt="Face swap hero" />
+                            <img src="https://bnbdogcmflenioju.public.blob.vercel-storage.com/Hero.gif" alt="Face swap hero" />
                         </div>
                     </header>
                     

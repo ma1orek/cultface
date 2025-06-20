@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/face-swap": "pages/face-swap.html",
-  "/": "pages/index.html",
-  "/api/face-swap": "pages/api/face-swap.js"
+  "/": "pages/index.js"
 }
