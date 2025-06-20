@@ -3,8 +3,8 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 const scenes = [
-    { name: "Leonardo DiCaprio", videoUrl: "/Leonardo DiCaprio.mp4", imageUrl: "/Leonardo DiCaprio.jpg" },
-    { name: "Mel Gibson", videoUrl: "/Mel Gibson.mp4", imageUrl: "/Mel Gibson.jpg" },
+    { name: "Leonardo DiCaprio", videoUrl: "https://bliskioptyk.pl/videos/Leonardo%20DiCaprio.mp4", imageUrl: "https://bliskioptyk.pl/images/Leonardo%20DiCaprio.jpg" },
+    { name: "Mel Gibson", videoUrl: "https://bliskioptyk.pl/videos/Mel%20Gibson.mp4", imageUrl: "https://bliskioptyk.pl/images/Mel%20Gibson.jpg" },
     { name: "For Bigger Blazes", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg" },
     { name: "For Bigger Escape", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg" },
     { name: "For Bigger Fun", videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", imageUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg" },
