@@ -230,8 +230,8 @@ export default function CultFace() {
     return (
         <>
             <Head>
-                <title>CULTFACE</title>
-                <link rel="icon" href="/favi.png" />
+                <title>cultface - put yourself in the middle of iconic movie scenes - AI powered</title>
+                <link rel="icon" href="/favi.png?v=2" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
@@ -268,7 +268,14 @@ export default function CultFace() {
                                     <div className="scene-grid">
                                         {scenes.map((scene) => (
                                             <div key={scene.name} className={`scene-card ${selectedScene?.name === scene.name ? 'active' : ''}`} onClick={() => handleSceneClick(scene)}>
-                                                <div className="scene-thumbnail" style={{ backgroundImage: `url(${scene.imageUrl})` }}></div>
+                                                <div className="scene-thumbnail">
+                                                    <Image
+                                                        src={scene.imageUrl}
+                                                        alt={scene.name}
+                                                        layout="fill"
+                                                        objectFit="cover"
+                                                    />
+                                                </div>
                                                 <div className="scene-title-wrapper">
                                                     <div className="scene-title"><strong>{scene.name}</strong></div>
                                                     <div className="scene-actor">{scene.actor}</div>
@@ -589,12 +596,13 @@ export default function CultFace() {
                     box-shadow: 0 0 15px rgba(231,240,170,0.2);
                 }
                 .scene-thumbnail {
+                    position: relative;
                     width: 100%;
                     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-                    background-size: cover;
-                    background-position: center;
                     border-radius: 8px;
+                    overflow: hidden; /* Ensures the inner Image component respects the border-radius */
                     transition: transform 0.3s ease;
+                    background-color: #1a1a1a; /* Placeholder color */
                 }
                 .scene-title-wrapper {
                     position: absolute;
