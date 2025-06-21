@@ -141,10 +141,15 @@ export default function CultFace() {
             return;
         }
 
-        const videoUrlToGenerate = customUrl || selectedScene?.videoUrl;
+        let videoUrlToGenerate = customUrl || selectedScene?.videoUrl;
         if (!videoUrlToGenerate) {
             alert('Please select a scene or provide a video URL!');
             return;
+        }
+
+        // If the URL is a local path, construct the absolute URL for the API
+        if (videoUrlToGenerate.startsWith('/')) {
+            videoUrlToGenerate = `${window.location.origin}${videoUrlToGenerate}`;
         }
 
         setIsGenerating(true);
