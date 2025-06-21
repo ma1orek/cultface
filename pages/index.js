@@ -3,60 +3,89 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 const scenes = [
-    { 
-        name: "Leonardo DiCaprio", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Leonardo%20DiCaprio.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Leonardo%20DiCaprio.jpg" 
+    {
+        name: 'Meet Joe Black (1998)',
+        actor: 'Brad Pitt',
+        videoUrl: '/Brad Pitt.mp4',
+        imageUrl: '/Brad Pitt.jpg',
     },
-    { 
-        name: "Mel Gibson", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Mel%20Gibson.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Mel%20Gibson.jpg" 
+    {
+        name: "Bridget Jones's Diary (2001)",
+        actor: 'Renée Zellweger',
+        videoUrl: '/Renee Zellweger.mp4',
+        imageUrl: '/Renee Zellweger.jpg',
     },
-    { 
-        name: "Brad Pitt", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Brad%20Pitt.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Brad%20Pitt.jpg" 
+    {
+        name: 'The Wolf of Wall Street (2013)',
+        actor: 'Leonardo DiCaprio',
+        videoUrl: '/Leonardo DiCaprio.mp4',
+        imageUrl: '/Leonardo DiCaprio.jpg',
     },
-    { 
-        name: "Bruce Almighty", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Bruce%20Almighty.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Bruce%20Almighty.jpg" 
+    {
+        name: 'The Godfather (1972)',
+        actor: 'Marlon Brando',
+        videoUrl: '/Marlon Brando.mp4',
+        imageUrl: '/Marlon Brando.jpg',
     },
-    { 
-        name: "Forrest Gump", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Forrest%20Gump.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Forrest%20Gump.jpg" 
+    {
+        name: 'Forrest Gump (1994)',
+        actor: 'Tom Hanks',
+        videoUrl: '/Forrest Gump.mp4',
+        imageUrl: '/Forrest Gump.jpg',
     },
-    { 
-        name: "Iron Man", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Iron%20Man.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Iron%20Man.jpg" 
+    {
+        name: 'Lucy (2014)',
+        actor: 'Scarlett Johansson',
+        videoUrl: '/Scarlett Johansson.mp4',
+        imageUrl: '/Scarlett Johansson.jpg',
     },
-    { 
-        name: "Jadore Dior", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jadore%20Dior.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jadore%20Dior.jpg" 
+    {
+        name: 'The Shining (1980)',
+        actor: 'Jack Nicholson',
+        videoUrl: '/Jack Nicholson.mp4',
+        imageUrl: '/Jack Nicholson.jpg',
     },
-    { 
-        name: "Jan Frycz", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jan%20Frycz.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jan%20Frycz.jpg" 
+    {
+        name: 'Pulp Fiction (1994)',
+        actor: 'Samuel L. Jackson',
+        videoUrl: '/Samuel L Jackson.mp4',
+        imageUrl: '/Samuel L Jackson.jpg',
     },
-    { 
-        name: "Van Damme", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Van%20Damme.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Van%20Damme.jpg" 
+    {
+        name: 'Braveheart (1995)',
+        actor: 'Mel Gibson',
+        videoUrl: '/Mel Gibson.mp4',
+        imageUrl: '/Mel Gibson.jpg',
     },
-    { 
-        name: "Woman 1", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Woman1.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Woman1.jpg" 
+    {
+        name: 'The Dark Knight (2008)',
+        actor: 'Heath Ledger',
+        videoUrl: '/Heath Ledger.mp4',
+        imageUrl: '/Heath Ledger.jpg',
     },
-     { 
-        name: "Jack Nicholson", 
-        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jack%20Nicholson.mp4", 
-        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jack%20Nicholson.jpg" 
+    {
+        name: 'Blinded By The Lights (2018)',
+        actor: 'Jan Frycz',
+        videoUrl: '/Jan Frycz.mp4',
+        imageUrl: '/Jan Frycz.jpg',
+    },
+    {
+        name: 'Iron Man 2 (2010)',
+        actor: 'Robert Downey Jr.',
+        videoUrl: '/Robert Downey Jr.mp4',
+        imageUrl: '/Robert Downey Jr.jpg',
+    },
+    {
+        name: 'Spider Man 2 (2004)',
+        actor: 'Tobey Maguire',
+        videoUrl: '/Tobey Maguire.mp4',
+        imageUrl: '/Tobey Maguire.jpg',
+    },
+    {
+        name: 'Bruce Almighty (2003)',
+        actor: 'Steve Carell',
+        videoUrl: '/Steve Carell.mp4',
+        imageUrl: '/Steve Carell.jpg',
     },
 ];
 
@@ -241,7 +270,7 @@ export default function CultFace() {
                                             <div key={scene.name} className={`scene-card ${selectedScene?.name === scene.name ? 'active' : ''}`} onClick={() => handleSceneClick(scene)}>
                                                 <div className="scene-thumbnail" style={{ backgroundImage: `url(${scene.imageUrl})` }}></div>
                                                 <div className="scene-title-wrapper">
-                                                    <div className="scene-title">{scene.name}</div>
+                                                    <div className="scene-title">{scene.actor}</div>
                                                 </div>
                                             </div>
                                         ))}
