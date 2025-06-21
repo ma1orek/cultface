@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "pages/api/face-swap.js": {
+      "maxDuration": 300
+    }
+  }
+} 
