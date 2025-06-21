@@ -211,6 +211,31 @@ export default function CultFace() {
         document.body.removeChild(a);
     };
 
+    const handleShare = async () => {
+        const shareData = {
+            title: 'CULTFACE',
+            text: 'Check out the iconic movie scene I starred in!',
+            url: 'https://www.cultface.me',
+        };
+
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                throw new Error('Web Share API not supported');
+            }
+        } catch (err) {
+            console.error("Couldn't share using Web Share API:", err);
+            // Fallback: Copy link to clipboard
+            navigator.clipboard.writeText(shareData.url).then(() => {
+                alert('Link to the website has been copied to your clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy link:', err);
+                alert('Could not copy link to clipboard.');
+            });
+        }
+    };
+
     useEffect(() => {
         const videoElement = videoRef.current;
         if (videoElement) {
@@ -236,7 +261,7 @@ export default function CultFace() {
         <>
             <Head>
                 <title>cultface - put yourself in the middle of iconic movie scenes - AI powered</title>
-                <link rel="icon" href="/favi.png?v=2" />
+                <link rel="icon" href="/favi.png?v=3" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
@@ -385,7 +410,7 @@ export default function CultFace() {
                             <video src={generatedVideoUrl} controls autoPlay loop className="result-video"></video>
                             <div className="modal-actions">
                                 <button className="btn-download" onClick={handleDownload}><i className="ri-download-2-line"></i> Download</button>
-                                <button className="btn-share"><i className="ri-share-line"></i> Share</button>
+                                <button className="btn-share" onClick={handleShare}><i className="ri-share-line"></i> Share</button>
                             </div>
                         </div>
                     </div>
@@ -841,24 +866,32 @@ export default function CultFace() {
                 .modal-actions {
                     display: flex;
                     justify-content: center;
-                    gap: 20px;
+                    gap: 15px;
+                    margin-top: 20px;
                 }
-                .modal-actions button {
-                    background: var(--input-bg-color);
-                    border: 1px solid var(--border-color);
-                    color: var(--text-color);
+                .btn-download, .btn-share {
+                    background-color: var(--brand-color);
+                    color: var(--background-color);
+                    border: none;
                     padding: 12px 25px;
-                    border-radius: 8px;
                     font-size: 1rem;
+                    font-weight: 500;
+                    border-radius: 8px;
                     cursor: pointer;
-                    transition: all 0.3s ease;
+                    transition: background-color 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
                 }
-                .modal-actions button:hover {
-                    border-color: var(--brand-color);
-                    color: var(--brand-color);
+                .btn-download:hover, .btn-share:hover {
+                    background-color: #d8e090;
                 }
-                .modal-actions button i {
-                    margin-right: 8px;
+                .btn-share {
+                    background-color: #2a2a2a;
+                    color: var(--text-color);
+                }
+                .btn-share:hover {
+                    background-color: #3a3a3a;
                 }
             `}</style>
         </>
