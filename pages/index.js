@@ -3,18 +3,61 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 const scenes = [
-    { name: "Leonardo DiCaprio", videoUrl: "https://bliskioptyk.pl/videos/Leonardo%20DiCaprio.mp4", imageUrl: "https://bliskioptyk.pl/images/Leonardo%20DiCaprio.jpg" },
-    { name: "Mel Gibson", videoUrl: "https://bliskioptyk.pl/videos/Mel%20Gibson.mp4", imageUrl: "https://bliskioptyk.pl/images/Mel%20Gibson.jpg" },
-    { name: 'Iron Man', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
-    { name: 'Brad Pitt', videoUrl: 'https://bliskioptyk.pl/videos/Brad%20Pitt.mp4', imageUrl: 'https://bliskioptyk.pl/images/Brad%20Pitt.jpg' },
-    { name: 'Van Damme', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
-    { name: 'Jan Frycz', videoUrl: 'https://bliskioptyk.pl/videos/Jan%20Frycz.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jan%20Frycz.jpg' },
-    { name: 'Bruce Almighty 2', videoUrl: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', imageUrl: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
-    { name: 'Forrest Gump 2', videoUrl: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', imageUrl: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
-    { name: 'Iron Man 2', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
-    { name: 'Jadore Dior 2', videoUrl: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
-    { name: 'Van Damme 2', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
-    { name: 'Woman 1 (alt)', videoUrl: 'https://bliskioptyk.pl/videos/Woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/Woman1.jpg' },
+    { 
+        name: "Leonardo DiCaprio", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Leonardo%20DiCaprio.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Leonardo%20DiCaprio.jpg" 
+    },
+    { 
+        name: "Mel Gibson", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Mel%20Gibson.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Mel%20Gibson.jpg" 
+    },
+    { 
+        name: "Brad Pitt", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Brad%20Pitt.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Brad%20Pitt.jpg" 
+    },
+    { 
+        name: "Bruce Almighty", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Bruce%20Almighty.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Bruce%20Almighty.jpg" 
+    },
+    { 
+        name: "Forrest Gump", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Forrest%20Gump.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Forrest%20Gump.jpg" 
+    },
+    { 
+        name: "Iron Man", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Iron%20Man.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Iron%20Man.jpg" 
+    },
+    { 
+        name: "Jadore Dior", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jadore%20Dior.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jadore%20Dior.jpg" 
+    },
+    { 
+        name: "Jan Frycz", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jan%20Frycz.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jan%20Frycz.jpg" 
+    },
+    { 
+        name: "Van Damme", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Van%20Damme.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Van%20Damme.jpg" 
+    },
+    { 
+        name: "Woman 1", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Woman1.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Woman1.jpg" 
+    },
+     { 
+        name: "Jack Nicholson", 
+        videoUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jack%20Nicholson.mp4", 
+        imageUrl: "https://bnbdogcmflenioju.public.blob.vercel-storage.com/Jack%20Nicholson.jpg" 
+    },
 ];
 
 export default function CultFace() {
