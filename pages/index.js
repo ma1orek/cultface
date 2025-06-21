@@ -46,10 +46,10 @@ const scenes = [
         imageUrl: '/Jack Nicholson.jpg',
     },
     {
-        name: 'Pulp Fiction (1994)',
-        actor: 'Samuel L. Jackson',
-        videoUrl: '/Samuel L Jackson.mp4',
-        imageUrl: '/Samuel L Jackson.jpg',
+        name: 'Star Wars: Revenge of the Sith (2005)',
+        actor: 'Ewan McGregor',
+        videoUrl: '/Ewan McGregor.mp4',
+        imageUrl: '/Ewan McGregor.jpg',
     },
     {
         name: 'Braveheart (1995)',
