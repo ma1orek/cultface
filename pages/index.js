@@ -8,7 +8,7 @@ const scenes = [
     { name: 'Iron Man', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
     { name: 'Brad Pitt', videoUrl: 'https://bliskioptyk.pl/videos/Brad%20Pitt.mp4', imageUrl: 'https://bliskioptyk.pl/images/Brad%20Pitt.jpg' },
     { name: 'Van Damme', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
-    { name: 'Woman 1', videoUrl: 'https://bliskioptyk.pl/videos/Jan%20Frycz.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jan%20Frycz.jpg' },
+    { name: 'Jan Frycz', videoUrl: 'https://bliskioptyk.pl/videos/Jan%20Frycz.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jan%20Frycz.jpg' },
     { name: 'Bruce Almighty 2', videoUrl: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', imageUrl: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
     { name: 'Forrest Gump 2', videoUrl: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', imageUrl: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
     { name: 'Iron Man 2', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
@@ -90,8 +90,14 @@ export default function CultFace() {
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => response.text());
-                const errorMessage = errorData.error || errorData || 'An unknown error occurred.';
+                const errorText = await response.text();
+                let errorMessage = errorText;
+                try {
+                    const errorJson = JSON.parse(errorText);
+                    errorMessage = errorJson.error || errorMessage;
+                } catch (e) {
+                    // If it's not JSON, the original text is the best we have.
+                }
                 throw new Error(errorMessage);
             }
 
@@ -103,7 +109,11 @@ export default function CultFace() {
 
         } catch (error) {
             console.error('Generation failed:', error);
-            alert(`Error: ${error.message}`);
+            if (error.message.includes('504') || error.message.includes('Gateway Timeout')) {
+                 alert('Error: The server took too long to respond. This can happen with long videos or high server load. Please try again in a moment or use a shorter video clip.');
+            } else {
+                 alert(`Error: ${error.message}`);
+            }
         } finally {
             setIsGenerating(false);
         }
