@@ -3,19 +3,18 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 const scenes = [
-    { name: "Leonardo DiCaprio", videoUrl: "https://bliskioptyk.pl/videos/leonardo%20dicaprio.mp4", imageUrl: "https://bliskioptyk.pl/images/leonardo%20dicaprio.jpg" },
-    { name: "Mel Gibson", videoUrl: "https://bliskioptyk.pl/videos/mel%20gibson.mp4", imageUrl: "https://bliskioptyk.pl/images/mel%20gibson.jpg" },
-    { name: 'Iron Man', videoUrl: 'https://bliskioptyk.pl/videos/iron%20man.mp4', imageUrl: 'https://bliskioptyk.pl/images/iron%20man.jpg' },
+    { name: "Leonardo DiCaprio", videoUrl: "https://bliskioptyk.pl/videos/Leonardo%20DiCaprio.mp4", imageUrl: "https://bliskioptyk.pl/images/Leonardo%20DiCaprio.jpg" },
+    { name: "Mel Gibson", videoUrl: "https://bliskioptyk.pl/videos/Mel%20Gibson.mp4", imageUrl: "https://bliskioptyk.pl/images/Mel%20Gibson.jpg" },
+    { name: 'Iron Man', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
     { name: 'Brad Pitt', videoUrl: 'https://bliskioptyk.pl/videos/Brad%20Pitt.mp4', imageUrl: 'https://bliskioptyk.pl/images/Brad%20Pitt.jpg' },
-    { name: 'Van Damme', videoUrl: 'https://bliskioptyk.pl/videos/van%20damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/van%20damme.jpg' },
-    { name: 'Jan Frycz', videoUrl: 'https://bliskioptyk.pl/videos/janfrycz.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jan%20Frycz.jpg' },
-    { name: 'Bruce Almighty 2', videoUrl: 'https://bliskioptyk.pl/videos/bruce%20almighty.mp4', imageUrl: 'https://bliskioptyk.pl/images/bruce%20almighty.jpg' },
-    { name: 'Forrest Gump 2', videoUrl: 'https://bliskioptyk.pl/videos/forrest%20gump.mp4', imageUrl: 'https://bliskioptyk.pl/images/forrest%20gump.jpg' },
-    { name: 'Iron Man 2', videoUrl: 'https://bliskioptyk.pl/videos/iron%20man.mp4', imageUrl: 'https://bliskioptyk.pl/images/iron%20man.jpg' },
-    { name: 'Jadore Dior', videoUrl: 'https://bliskioptyk.pl/videos/jadore%20dior.mp4', imageUrl: 'https://bliskioptyk.pl/images/jadore%20dior.jpg' },
-    { name: 'Van Damme 2', videoUrl: 'https://bliskioptyk.pl/videos/van%20damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/van%20damme.jpg' },
-    { name: 'Woman 1', videoUrl: 'https://bliskioptyk.pl/videos/woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/woman1.jpg' },
-    { name: 'Woman 1 (alt)', videoUrl: 'https://bliskioptyk.pl/videos/woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/woman1.jpg' },
+    { name: 'Van Damme', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
+    { name: 'Jan Frycz', videoUrl: 'https://bliskioptyk.pl/videos/Jan%20Frycz.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jan%20Frycz.jpg' },
+    { name: 'Bruce Almighty 2', videoUrl: 'https://bliskioptyk.pl/videos/Bruce%20Almighty.mp4', imageUrl: 'https://bliskioptyk.pl/images/Bruce%20Almighty.jpg' },
+    { name: 'Forrest Gump 2', videoUrl: 'https://bliskioptyk.pl/videos/Forrest%20Gump.mp4', imageUrl: 'https://bliskioptyk.pl/images/Forrest%20Gump.jpg' },
+    { name: 'Iron Man 2', videoUrl: 'https://bliskioptyk.pl/videos/Iron%20Man.mp4', imageUrl: 'https://bliskioptyk.pl/images/Iron%20Man.jpg' },
+    { name: 'Jadore Dior 2', videoUrl: 'https://bliskioptyk.pl/videos/Jadore%20Dior.mp4', imageUrl: 'https://bliskioptyk.pl/images/Jadore%20Dior.jpg' },
+    { name: 'Van Damme 2', videoUrl: 'https://bliskioptyk.pl/videos/Van%20Damme.mp4', imageUrl: 'https://bliskioptyk.pl/images/Van%20Damme.jpg' },
+    { name: 'Woman 1 (alt)', videoUrl: 'https://bliskioptyk.pl/videos/Woman1.mp4', imageUrl: 'https://bliskioptyk.pl/images/Woman1.jpg' },
 ];
 
 export default function CultFace() {
@@ -97,14 +96,8 @@ export default function CultFace() {
                     const errorJson = JSON.parse(errorText);
                     errorMessage = errorJson.error || errorMessage;
                 } catch (e) {
-                    // Not a JSON error, use the text.
+                    // If it's not JSON, the original text is the best we have.
                 }
-
-                // If the error is a full HTML page, don't show it.
-                if (errorMessage.trim().startsWith('<')) {
-                    throw new Error('An unexpected server error occurred. The server returned a generic error page.');
-                }
-
                 throw new Error(errorMessage);
             }
 
