@@ -270,7 +270,8 @@ export default function CultFace() {
                                             <div key={scene.name} className={`scene-card ${selectedScene?.name === scene.name ? 'active' : ''}`} onClick={() => handleSceneClick(scene)}>
                                                 <div className="scene-thumbnail" style={{ backgroundImage: `url(${scene.imageUrl})` }}></div>
                                                 <div className="scene-title-wrapper">
-                                                    <div className="scene-title">{scene.actor}</div>
+                                                    <div className="scene-title"><strong>{scene.name}</strong></div>
+                                                    <div className="scene-actor">{scene.actor}</div>
                                                 </div>
                                             </div>
                                         ))}
@@ -589,9 +590,11 @@ export default function CultFace() {
                 }
                 .scene-thumbnail {
                     width: 100%;
-                    height: 100%;
+                    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
                     background-size: cover;
                     background-position: center;
+                    border-radius: 8px;
+                    transition: transform 0.3s ease;
                 }
                 .scene-title-wrapper {
                     position: absolute;
@@ -601,7 +604,17 @@ export default function CultFace() {
                     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
                     padding: 20px 15px 15px;
                 }
-                .scene-title { font-weight: 500; color: #cccccc; }
+                .scene-title {
+                    font-weight: 500;
+                    font-size: 0.9rem;
+                    text-align: center;
+                }
+                .scene-actor {
+                    font-size: 0.8rem;
+                    color: var(--secondary-text-color);
+                    text-align: center;
+                    margin-top: 4px;
+                }
 
                 .video-preview-container {
                     margin-top: 40px;
